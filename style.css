@@ -13,11 +13,25 @@ body{
 
 }
 
-header {
-    background-color: rgb(15, 15, 72);
+    header {
+    background: linear-gradient(135deg, rgb(15, 15, 72), rgb(31, 41, 95));
     color: #f3f3f3;
     padding: 20px
 }
+
+.foto-perfil{
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    border: 4px solid rgb(15, 15, 72);
+    transition: 0.4s ease;
+}
+.foto-perfil:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(118, 167, 198, 0.5);
+}
+
 
 nav{
     max-width: 1000px;
@@ -39,6 +53,23 @@ nav ul{
 nav a{
     color: #f3f3f3;
     text-decoration: none;
+    position: relative;
+    transition: 0.3s;
+}
+
+nav a::after{
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: rgb(118, 167, 198);
+    left: 0;
+    bottom: -5px;
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after{
+    width: 100%;
 }
 nav a:hover{
     text-decoration: underline
@@ -72,27 +103,97 @@ button{
     border: none;
     border-radius: 8px;
     cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+button:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(118, 167, 198, 0.4);
 
 }
-button:hover{
-    background-color: rgb(118, 167, 198);
+.icone-tecnologia{
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
 }
+
+.icone-tecnologia{
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
 .cards{
-    display:grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
-.cards,
+
+.card,
 .projeto{
     background-color: #eeeff2;
     padding: 20px;
     border-left: 5px solid rgb(118, 167, 198);
     border-radius: 8px;
- 
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
-.cards h3,
-.cards p,
+/* Alinha ícone e título lado a lado */
+.icone-tecnologia{
+    width: 60px;
+    height: 60px;
+    transition: transform 0.3s ease;
+}
+
+.cards{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.card,
+.projeto{
+    background-color: #eeeff2;
+    padding: 20px;
+    border-left: 5px solid rgb(118, 167, 198);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* Container do ícone + nome */
+.card article{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+/* Nome da tecnologia ao lado do ícone */
+.card article h3{
+    margin: 0;
+    font-size: 22px;
+}
+
+/* Hover do card */
+.card:hover,
+.projeto:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    background-color: #dfe8ee;
+}
+
+/* Efeito no ícone */
+.card:hover .icone-tecnologia{
+    transform: scale(1.1) rotate(5deg);
+}
+
+.card h3,
+.card p,
 .projeto h3,
 .projeto p{
     color: black;
@@ -110,17 +211,75 @@ footer{
 }
 
 @media(max-width: 700px){
-    nav{
-        flex-direction: column;
-        gap: 15px
-    }
-    nav ul{
-        justify-content: center;
-    }
-    .cards{
-        grid-template-columns: 1fr;
-    }
-    .banner h2{
-        font-size: 26px;
-    }
+    .banner{
+    padding: 30px 20px;
+}
+
+.foto-perfil{
+    width: 120px;
+    height: 120px;
+}
+
+.card{
+    text-align: center;
+}
+
+.card article{
+    justify-content: center;
+}
+}
+/* ===== MODO ESCURO ===== */
+
+body.dark-mode{
+    background-color: #111827;
+    color: #f3f4f6;
+}
+
+/* Sections */
+body.dark-mode section{
+    background-color: #1f2937;
+}
+
+/* Cards */
+body.dark-mode .card,
+body.dark-mode .projeto{
+    background-color: #374151;
+    border-left: 5px solid #60a5fa;
+}
+
+/* Textos */
+body.dark-mode .card h3,
+body.dark-mode .card p,
+body.dark-mode .projeto h3,
+body.dark-mode .projeto p,
+body.dark-mode h2,
+body.dark-mode p{
+    color: #f3f4f6;
+}
+
+/* Footer */
+body.dark-mode footer{
+    background-color: #1f2937;
+    color: white;
+}
+
+/* Botão */
+#toggleTema{
+    background-color: white;
+    color: black;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#toggleTema:hover{
+    transform: scale(1.05);
+}
+
+/* Botão no modo escuro */
+body.dark-mode #toggleTema{
+    background-color: #374151;
+    color: white;
 }
