@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aprendizados com IA</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <header>
         <nav>
@@ -17,28 +19,62 @@
                 <li><a href="projetos.html">Projetos</a></li>
             </ul>
 
+            <button id="toggleTema" onclick="alternarTema()">
+                🌙 Modo Escuro
+            </button>
+
         </nav>
     </header>
     <main>
         <section>
             <h2>Aprendizados com IA</h2>
-            <p>Nesta página, registro dúvidas de programação que estudei com apoio de inteligência artificial generativa</p>
+            <p>Nesta página, registro dúvidas de programação que estudei com apoio de inteligência artificial generativa
+            </p>
+            <form class="form-aprendizado" onsubmit="return adicionarAprendizados(event)">
+                <h3>Adicionar novo aprendizado</h3> 
+
+                <select id="tema">
+                    <option value="">Selecione</option>
+                    <option value="HTML">HTML</option>
+                    <option value="CSS">CSS</option>
+                    <option value="JavaScript">JavaScript</option>
+                </select>
+
+                <label for="pergunta">Pergunta</label>
+                <textarea type="text" id="pergunta" placeholder="Digite sua dúvida:"></textarea>
+                
+                <label for="resposta">Resposta resumida</label>
+                <textarea id="resposta" placeholder="Resumo da resposta de IA"></textarea>
+
+                <label for="entendimento">O que eu entendi</label>
+                <textarea id="entendimento" placeholder="Explique com suas palavras"></textarea>
+
+                <button type="submit">Adicionar Aprendizado</button>
+
+
+
+            </form>
             <p id="contadorAprendizados"></p>
-            <div class="filtros">
-                <button onclick="filtrarAprendizado('Todos')">Todos</button>
-                <button onclick="filtrarAprendizado('HTML')">HTML</button>
-                <button onclick="filtrarAprendizado('CSS')">CSS</button>
-                <button onclick="filtrarAprendizado('JavaScript')">JavaScript</button> 
+            <div class="filtros-container">
+                <div class="filtros">
+                    <button data-tema="Todos" onclick="filtrarAprendizado('Todos')">Todos</button>
+                    <button data-tema="HTML" onclick="filtrarAprendizado('HTML')">HTML</button>
+                    <button data-tema="CSS" onclick="filtrarAprendizado('CSS')">CSS</button>
+                    <button data-tema="JavaScript" onclick="filtrarAprendizado('JavaScript')">JavaScript</button>
+                </div>
+
+                <button id="botaoAprendizados" class="botao-ocultar" onclick="mostrarOcultarAprendizados()">
+                    👁️ Ocultar Aprendizados
+                </button>
             </div>
-            <button onclick="mostrarOcutarAprendizados()" id="botaoAprendizados">
-                Ocultar aprendizados
-            </button>
+
             <div id="listaAprendizados" class="cards-aprendizados"></div>
         </section>
-        </main>
+    </main>
     <footer>
         <p>Todos os direitos reservados</p>
     </footer>
-    <script src="srcipt.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>

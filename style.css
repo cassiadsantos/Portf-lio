@@ -5,18 +5,56 @@
     padding: 0;
     box-sizing: border-box;
 }
-body{
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #f4f5f6;
-    color:#111827;
-    line-height: 1.5;
 
+:root{
+    --bg: #f4f5f6;
+    --surface: #e5e7eb;
+    --surface-strong: #eeeff2;
+    --surface-hover: #dfe8ee;
+    --surface-alt: #ffffff;
+    --text: #0b2447;
+    --muted: #111827;
+    --primary: #60a5fa;
+    --primary-dark: #3b82f6;
+    --accent: #76a7c6;
+    --accent-soft: rgba(96,165,250,0.25);
+    --border: rgba(0,0,0,0.08);
+    --shadow: rgba(0,0,0,0.12);
+
+    --dark-bg: #111827;
+    --dark-surface: #1f2937;
+    --dark-surface-strong: #374151;
+    --dark-text: #f3f4f6;
+    --dark-button: #374151;
+    --dark-button-text: #f3f4f6;
 }
 
-    header {
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--bg);
+    color: var(--muted);
+    line-height: 1.5;
+}
+
+/* força texto preto no modo claro */
+section,
+.card,
+.projeto,
+.aprendizado,
+h1,
+h2,
+h3,
+p,
+span,
+a,
+li{
+    color: #000;
+}
+
+header {
     background: linear-gradient(135deg, rgb(15, 15, 72), rgb(31, 41, 95));
     color: #f3f3f3;
-    padding: 20px
+    padding: 20px;
 }
 
 .foto-perfil{
@@ -27,11 +65,11 @@ body{
     border: 4px solid rgb(15, 15, 72);
     transition: 0.4s ease;
 }
+
 .foto-perfil:hover{
     transform: scale(1.05);
     box-shadow: 0 0 25px rgba(118, 167, 198, 0.5);
 }
-
 
 nav{
     max-width: 1000px;
@@ -41,15 +79,19 @@ nav{
     align-items: center;
     flex-wrap: wrap;
 }
+
 nav h1{
     font-size: 28px;
+    color: #f3f3f3;
 }
+
 nav ul{
     list-style: none;
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
 }
+
 nav a{
     color: #f3f3f3;
     text-decoration: none;
@@ -62,7 +104,7 @@ nav a::after{
     position: absolute;
     width: 0;
     height: 2px;
-    background-color: rgb(118, 167, 198);
+    background-color: var(--accent);
     left: 0;
     bottom: -5px;
     transition: width 0.3s ease;
@@ -71,34 +113,41 @@ nav a::after{
 nav a:hover::after{
     width: 100%;
 }
+
 nav a:hover{
-    text-decoration: underline
+    text-decoration: underline;
 }
+
 main{
     max-width: 1000px;
     margin: 0 auto;
     padding: 30px 20px;
 }
+
 section{
     background-color: rgb(229, 231, 235);
     margin-bottom: 25px;
     padding: 30px;
     border-radius: 12px;
 }
+
 .banner{
     text-align: center;
     padding: 50px 30px;
 }
+
 .banner h2{
     font-size: 32px;
     margin-bottom: 15px;
 }
+
 .banner p{
     margin-bottom: 20px;
 }
+
 button{
-    background-color: rgb(118, 167, 198);
-    color: black;
+    background-color: var(--primary);
+    color: var(--muted);
     padding: 12px 18px;
     border: none;
     border-radius: 8px;
@@ -109,14 +158,7 @@ button{
 
 button:hover{
     transform: translateY(-3px);
-    box-shadow: 0 8px 18px rgba(118, 167, 198, 0.4);
-
-}
-.icone-tecnologia{
-    width: 60px;
-    height: 60px;
-    margin-bottom: 10px;
-    transition: transform 0.3s ease;
+    box-shadow: 0 8px 18px rgba(96,165,250,0.4);
 }
 
 .icone-tecnologia{
@@ -134,32 +176,9 @@ button:hover{
 
 .card,
 .projeto{
-    background-color: #eeeff2;
+    background-color: var(--surface-strong);
     padding: 20px;
-    border-left: 5px solid rgb(118, 167, 198);
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-/* Alinha ícone e título lado a lado */
-.icone-tecnologia{
-    width: 60px;
-    height: 60px;
-    transition: transform 0.3s ease;
-}
-
-.cards{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.card,
-.projeto{
-    background-color: #eeeff2;
-    padding: 20px;
-    border-left: 5px solid rgb(118, 167, 198);
+    border-left: 5px solid var(--primary);
     border-radius: 8px;
     transition: all 0.3s ease;
     cursor: pointer;
@@ -183,8 +202,8 @@ button:hover{
 .card:hover,
 .projeto:hover{
     transform: translateY(-8px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    background-color: #dfe8ee;
+    box-shadow: 0 8px 20px var(--shadow);
+    background-color: var(--surface-hover);
 }
 
 /* Efeito no ícone */
@@ -196,38 +215,154 @@ button:hover{
 .card p,
 .projeto h3,
 .projeto p{
-    color: black;
+    color: var(--muted);
     margin-bottom: 10px;
 }
 
-#contato a{
-    color:  rgb(118, 167, 198)
+.form-aprendizado{
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-top: 25px 0;
 }
+.form-aprendizado input,
+.form-aprendizado textarea,
+.form-aprendizado select{
+    padding: 12px;
+    border: 1px dotted var(--surface-alt);
+    border-radius: 8px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--surface-alt);
+    color: var(--muted);
+}
+
+.form-aprendizado textarea{
+    min-height: 80px;
+    resize: vertical;
+}
+.cards-aprendizados{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 18px;
+    margin-top: 20px;
+}
+
+.aprendizado{
+    background-color: var(--surface-alt);
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 5px solid var(--primary);
+}
+
+.aprendizado-spam{
+    display: inline-block;
+    background-color: var(--surface);
+    color: var(--primary);
+    padding: 5px 30px;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.aprendizado h3,
+.aprendizado p{
+    margin-bottom: 10px;
+}
+.oculto{
+    display: none;
+}
+/* estilos para botões de filtro de aprendizados */
+.filtros{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+}
+.filtros button{
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--surface-alt);
+    cursor: pointer;
+    transition: background-color 160ms ease, transform 80ms ease;
+    color: var(--muted);
+}
+.filtros button:hover{ background: var(--surface-hover); }
+.filtros button:active{ transform: translateY(1px); }
+.filtros button:focus{ outline: 3px solid var(--accent-soft); }
+.filtros button.ativo{
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary-dark);
+    box-shadow: 0 6px 18px rgba(59,130,246,0.12);
+}
+
+/* container para organizar filtros e botão de mostrar/ocultar */
+.filtros-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+}
+.filtros{
+    flex: 1 1 auto;
+}
+.botao-ocultar{
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--surface-alt);
+    cursor: pointer;
+    color: var(--muted);
+    transition: background-color 160ms ease, transform 120ms ease, box-shadow 160ms ease;
+}
+.botao-ocultar:hover{
+    background: var(--surface-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px var(--shadow);
+}
+
+@media(max-width:700px){
+    .filtros-container{
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .botao-ocultar{
+        align-self: flex-end;
+    }
+}
+#contato a{
+    color: var(--accent);
+}
+
 footer{
     text-align: center;
-    background-color: white;
-    color:black;
+    background-color: var(--surface-alt);
+    color: var(--muted);
     padding: 20px;
 }
 
 @media(max-width: 700px){
+
     .banner{
-    padding: 30px 20px;
+        padding: 30px 20px;
+    }
+
+    .foto-perfil{
+        width: 120px;
+        height: 120px;
+    }
+
+    .card{
+        text-align: center;
+    }
+
+    .card article{
+        justify-content: center;
+    }
 }
 
-.foto-perfil{
-    width: 120px;
-    height: 120px;
-}
-
-.card{
-    text-align: center;
-}
-
-.card article{
-    justify-content: center;
-}
-}
 /* ===== MODO ESCURO ===== */
 
 body.dark-mode{
@@ -247,13 +382,29 @@ body.dark-mode .projeto{
     border-left: 5px solid #60a5fa;
 }
 
+/* Aprendizados */
+body.dark-mode .aprendizado{
+    background-color: #374151;
+    color: #f3f3f3;
+}
+
+body.dark-mode .aprendizado-spam{
+    background-color: #60a5fa;
+    color: #f3f3f3;
+}
+
 /* Textos */
 body.dark-mode .card h3,
 body.dark-mode .card p,
 body.dark-mode .projeto h3,
 body.dark-mode .projeto p,
+body.dark-mode h1,
 body.dark-mode h2,
-body.dark-mode p{
+body.dark-mode h3,
+body.dark-mode p,
+body.dark-mode span,
+body.dark-mode li,
+body.dark-mode a{
     color: #f3f4f6;
 }
 
