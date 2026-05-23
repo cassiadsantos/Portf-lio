@@ -14,12 +14,12 @@
     --surface-alt: #ffffff;
     --text: #0b2447;
     --muted: #111827;
-    --primary: #60a5fa;
+    --primary: rgb(118, 167, 198);
     --primary-dark: #3b82f6;
-    --accent: #76a7c6;
-    --accent-soft: rgba(96,165,250,0.25);
+    --accent: rgb(118, 167, 198);
+    --accent-soft: rgba(118,167,198,0.25);
     --border: rgba(0,0,0,0.08);
-    --shadow: rgba(0,0,0,0.12);
+    --shadow: rgba(118,167,198,0.4);
 
     --dark-bg: #111827;
     --dark-surface: #1f2937;
@@ -36,7 +36,7 @@ body{
     line-height: 1.5;
 }
 
-/* força texto preto no modo claro */
+/* força texto no modo claro */
 section,
 .card,
 .projeto,
@@ -48,7 +48,7 @@ p,
 span,
 a,
 li{
-    color: #000;
+    color: var(--muted);
 }
 
 header {
