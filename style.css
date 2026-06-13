@@ -434,3 +434,242 @@ body.dark-mode #toggleTema{
     background-color: #374151;
     color: white;
 }
+
+/* ===== SEÇÃO DE PORTFÓLIO COM CARDS MODERNOS ===== */
+
+/* Header da seção de portfólio */
+.portfolio-section {
+    background: transparent;
+    padding: 0;
+    margin-bottom: 50px;
+}
+
+.portfolio-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.portfolio-header h2 {
+    font-size: 42px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: var(--muted);
+}
+
+/* Palavra "portfólio" em destaque laranja/vermelho */
+.destaque {
+    color: #ff6b35;
+    font-weight: bold;
+    text-transform: lowercase;
+}
+
+.portfolio-header p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* Grid de cards responsivo */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+}
+
+/* Estilo dos cards de portfólio */
+.portfolio-card {
+    background-color: var(--surface-alt);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    cursor: pointer;
+    border: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* Imagem/Header do card */
+.card-image {
+    width: 100%;
+    height: 120px;
+    background-size: cover;
+    background-position: center;
+    transition: all 0.4s ease;
+}
+
+.portfolio-card:hover .card-image {
+    transform: scaleY(1.05);
+}
+
+/* Conteúdo do card */
+.card-content {
+    padding: 18px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.portfolio-card h3 {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--muted);
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+.portfolio-card p {
+    font-size: 12px;
+    color: #555;
+    margin-bottom: 12px;
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+/* Tags/Tags de tecnologia */
+.card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.tag {
+    display: inline-block;
+    background-color: #f0f0f0;
+    color: #666;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    border: 1px solid #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+.portfolio-card:hover .tag {
+    background-color: #ff6b35;
+    color: white;
+    border-color: #ff6b35;
+}
+
+/* Link do card */
+.card-link {
+    display: inline-block;
+    color: #ff6b35;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    align-self: flex-start;
+}
+
+.card-link:hover {
+    color: #ff5722;
+    transform: translateX(5px);
+}
+
+/* ===== MODO ESCURO - PORTFÓLIO ===== */
+
+body.dark-mode .portfolio-header h2 {
+    color: #f3f4f6;
+}
+
+body.dark-mode .portfolio-header p {
+    color: #9ca3af;
+}
+
+body.dark-mode .portfolio-card {
+    background-color: #1f2937;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .portfolio-card:hover {
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
+}
+
+body.dark-mode .portfolio-card h3 {
+    color: #f3f4f6;
+}
+
+body.dark-mode .portfolio-card p {
+    color: #d1d5db;
+}
+
+body.dark-mode .tag {
+    background-color: #374151;
+    color: #d1d5db;
+    border-color: #4b5563;
+}
+
+body.dark-mode .portfolio-card:hover .tag {
+    background-color: #ff6b35;
+    color: white;
+    border-color: #ff6b35;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+
+@media (max-width: 768px) {
+    .portfolio-header h2 {
+        font-size: 32px;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+    }
+
+    .card-content {
+        padding: 20px;
+    }
+
+    .portfolio-card h3 {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 600px) {
+    .portfolio-header h2 {
+        font-size: 28px;
+    }
+
+    .portfolio-header p {
+        font-size: 14px;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .card-image {
+        height: 150px;
+    }
+
+    .card-content {
+        padding: 18px;
+    }
+
+    .portfolio-card h3 {
+        font-size: 16px;
+    }
+
+    .portfolio-card p {
+        font-size: 13px;
+    }
+
+    .card-tags {
+        gap: 6px;
+    }
+
+    .tag {
+        font-size: 11px;
+        padding: 5px 10px;
+    }
+}
