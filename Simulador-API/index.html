@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Buscar CEP (ViaCEP)</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-brand">
+      <svg class="site-logo" width="40" height="40" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <g fill="none" fill-rule="evenodd">
+          <circle cx="12" cy="12" r="11" fill="rgba(255,255,255,0.12)"/>
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 11 7 11s7-5.75 7-11c0-3.87-3.13-7-7-7z" fill="#ffffff"/>
+          <circle cx="12" cy="9" r="2.5" fill="#0f62fe"/>
+        </g>
+      </svg>
+      <div class="brand-text">
+        <strong>Minha API de CEP</strong>
+        <small>ViaCEP • OpenStreetMap</small>
+      </div>
+    </div>
+    <nav class="site-nav" aria-label="Principais">
+      <a href="#" aria-current="page">Início</a>
+      <a href="#">Sobre</a>
+      <a href="#">Contato</a>
+    </nav>
+  </header>
+  <div class="container grid">
+    <aside class="left">
+      <div class="brand"><h1>Consultar CEP</h1><small>ViaCEP + Nominatim / OpenStreetMap</small></div>
+      <form id="cepForm">
+        <input type="text" id="cepInput" placeholder="Digite o CEP (ex: 01001-000)" maxlength="9">
+        <button type="submit">Buscar</button>
+      </form>
+      <div id="result" aria-live="polite"></div>
+      <div class="controls-row">
+        <div class="map-controls"><button id="clearHistoryBtn" type="button">Limpar histórico</button></div>
+        <div class="legend">Legenda: <span class="dot" style="background:#2b8cbe"></span> marcadores</div>
+      </div>
+    </aside>
+    <section class="right">
+      <div id="map" aria-hidden="false"></div>
+    </section>
+  </div>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
