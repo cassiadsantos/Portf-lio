@@ -1,0 +1,8 @@
+name = "cep-map-proxy"
+main = "cloudflare-worker.js"
+compatibility_date = "2026-01-01"
+
+[vars]
+# set MAPTILER_KEY and CONTACT_EMAIL as environment variables in Cloudflare dashboard or via 'wrangler secret put'
+MAPTILER_KEY = ""
+CONTACT_EMAIL = ""
