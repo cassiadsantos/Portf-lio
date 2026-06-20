@@ -1,23 +1,25 @@
-Deploy rápido no GitHub Pages
+﻿# Simulador de API CRUD
 
-1) Inicializar repositório (se ainda não):
-   git init
-   git add .
-   git commit -m "Initial"
-   gh repo create <nome-do-repo> --public --source=. --remote=origin
-   git push -u origin main
+Projeto estático que simula um consumo de API usando **Fetch API** em um arquivo JSON local.
 
-2) Publicar via GitHub Pages:
-   - No GitHub, vá em Settings → Pages → Branch: choose 'main' / root → Save.
-   - Aguarde alguns minutos e abra https://<seu-usuario>.github.io/<nome-do-repo>/
+## Funcionalidades
 
-Observações de segurança:
-- A chave MAPTILER_KEY está embutida em config.js e será pública.
-- No MapTiler Dashboard, restrinja a chave por HTTP referrer (domínio do seu site) e rotacione se comprometida.
-- Melhor solução: mover para proxy/server (Cloudflare Workers, Netlify/Vercel functions) para não expor a chave.
+- `GET /` - Carrega todos os usuários
+- `GET /:id` - Busca usuário por ID
+- `POST /` - Cria um novo usuário
+- `PUT /:id` - Atualiza usuário existente
+- `DELETE /:id` - Remove usuário existente
+- Exibe **status codes** simulados e resposta em JSON
 
-Recomendado após deploy:
-- Criar proxy para /api/geocode e /api/viacep para evitar expor detalhes e aplicar rate-limit.
-- Usar MapTiler restrictions e monitorar uso.
+## Como usar
 
-Se quiser, eu: 1) crio o repo e faço o push (preciso de acesso), 2) gero um Cloudflare Worker para proxy sem Node.js, ou 3) configurar Netlify deploy automático.
+1. Abra `Simulador-API/index.html` no navegador.
+2. Use os botões para executar operações.
+3. Veja o JSON atualizado na seção de dados locais.
+
+## Estrutura
+
+- `index.html` - interface do simulador
+- `style.css` - estilos da página
+- `app.js` - lógica CRUD e simulação de status
+- `data.json` - dados de exemplo

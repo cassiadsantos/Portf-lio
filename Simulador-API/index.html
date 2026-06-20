@@ -1,52 +1,73 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Buscar CEP (ViaCEP)</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulador de API CRUD</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="site-brand">
-      <svg class="site-logo" width="40" height="40" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <g fill="none" fill-rule="evenodd">
-          <circle cx="12" cy="12" r="11" fill="rgba(255,255,255,0.12)"/>
-          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 11 7 11s7-5.75 7-11c0-3.87-3.13-7-7-7z" fill="#ffffff"/>
-          <circle cx="12" cy="9" r="2.5" fill="#0f62fe"/>
-        </g>
-      </svg>
-      <div class="brand-text">
-        <strong>Minha API de CEP</strong>
-        <small>ViaCEP • OpenStreetMap</small>
-      </div>
-    </div>
-    <nav class="site-nav" aria-label="Principais">
-      <a href="#" aria-current="page">Início</a>
-      <a href="#">Sobre</a>
-      <a href="#">Contato</a>
-    </nav>
-  </header>
-  <div class="container grid">
-    <aside class="left">
-      <div class="brand"><h1>Consultar CEP</h1><small>ViaCEP + Nominatim / OpenStreetMap</small></div>
-      <form id="cepForm">
-        <input type="text" id="cepInput" placeholder="Digite o CEP (ex: 01001-000)" maxlength="9">
-        <button type="submit">Buscar</button>
-      </form>
-      <div id="result" aria-live="polite"></div>
-      <div class="controls-row">
-        <div class="map-controls"><button id="clearHistoryBtn" type="button">Limpar histórico</button></div>
-        <div class="legend">Legenda: <span class="dot" style="background:#2b8cbe"></span> marcadores</div>
-      </div>
-    </aside>
-    <section class="right">
-      <div id="map" aria-hidden="false"></div>
-    </section>
+  <div class="page">
+    <header class="page-header">
+      <h1>Simulador de API CRUD</h1>
+      <p>Faça requisições com Fetch API em um arquivo JSON local e veja os status codes simulados.</p>
+    </header>
+
+    <main>
+      <section class="panel">
+        <h2>Operações CRUD</h2>
+        <div class="controls-grid">
+          <button id="loadBtn" class="btn btn-primary">GET todos</button>
+          <button id="getByIdBtn" class="btn btn-secondary">GET por ID</button>
+          <button id="createBtn" class="btn btn-success">POST criar</button>
+          <button id="updateBtn" class="btn btn-warning">PUT atualizar</button>
+          <button id="deleteBtn" class="btn btn-danger">DELETE</button>
+          <button id="resetBtn" class="btn btn-outline">Resetar formulário</button>
+        </div>
+      </section>
+
+      <section class="panel form-panel">
+        <h2>Dados do usuário</h2>
+        <div class="field">
+          <label for="userId">ID</label>
+          <input type="number" id="userId" placeholder="Use para GET/PUT/DELETE">
+        </div>
+        <div class="field">
+          <label for="userName">Nome</label>
+          <input type="text" id="userName" placeholder="Nome do usuário">
+        </div>
+        <div class="field">
+          <label for="userEmail">Email</label>
+          <input type="email" id="userEmail" placeholder="Email do usuário">
+        </div>
+        <div class="field">
+          <label for="userRole">Cargo</label>
+          <input type="text" id="userRole" placeholder="Cargo do usuário">
+        </div>
+      </section>
+
+      <section class="panel status-panel">
+        <h2>Status da requisição</h2>
+        <div id="statusBox" class="status-box">
+          <span id="statusCode" class="status-code">-</span>
+          <div>
+            <strong id="statusText">Nenhuma requisição realizada</strong>
+            <p id="statusDetail">Use um botão para simular uma chamada de API.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel response-panel">
+        <h2>Resposta da API</h2>
+        <pre id="responseOutput" class="response-output">Nenhuma resposta ainda.</pre>
+      </section>
+
+      <section class="panel data-panel">
+        <h2>Dados locais</h2>
+        <pre id="dataOutput" class="data-output">Carregando arquivo JSON...</pre>
+      </section>
+    </main>
   </div>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="config.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
